@@ -13,7 +13,7 @@ class Snake
 		Snake(int, WINDOW *);
 		void snake_update();
 		void snake_speed_update(int, int);
-		void snake_print();
+		void grow();
 };
 
 #endif
