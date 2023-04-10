@@ -2,18 +2,37 @@
 
 __Nsnake__ is an implementation of well known __Snake__ game with ncurses library.
 
-# Dependencies
+## Build
 
-- GNU compiler;
-- make;
-- C++ 17;
-- Ncurces library.
+__Dependencies__:
+- GNU make;
+- [Ncurses](https://invisible-island.net/ncurses/) library.
 
-# Build
-
-Build and start the game:
+### Arch Linux
 
 ```bash
-make
-./nsnake
+$ sudo pacman -S ncurses
+$ make
 ```
+
+### Debian
+
+```bash
+$ sudo apt-get install libncurses5-dev libncursesw5-dev
+$ make
+```
+
+## Controls
+
+| Key | Description |
+| --- | --- |
+| <kbd>Q</kbd> | Quit |
+| <kbd>H</kbd> | Move Left |
+| <kbd>J</kbd> | Move Down |
+| <kbd>K</kbd> | Move Up |
+| <kbd>L</kbd> | Move Right |
+
+## TODO
+
+- [ ] Add score window;
+- [ ] Code refactoring.
