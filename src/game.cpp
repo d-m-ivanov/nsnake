@@ -188,7 +188,10 @@ void GameManager::run_game() {
       this->snake->grow(consumed_fruits[0]);
       consumed_fruits.erase(consumed_fruits.begin());
     }
-	if(first_frame) {this->print_score_field(); first_frame = false;}
+    if (first_frame) {
+      this->print_score_field();
+      first_frame = false;
+    }
     snake->snake_update();
     this->print_game_frame();
   }
