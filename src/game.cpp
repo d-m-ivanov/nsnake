@@ -24,22 +24,17 @@ bool GameManager::check_game_over() {
   int maxX = game_field_width - 1;
   int maxY = game_field_height - 1;
 
-  // Get snake head coordinates
-  int headX = snake->snake_points.back().first;
-  int headY = snake->snake_points.back().second;
-
+  std::pair<int, int> head = snake->snake_points.back();
   // Check if head of the snake collides with borders
-  if (headX == 0 || headY == 0 || headX == maxX || headY == maxY)
+  if (head.first == 0 || head.second == 0 || head.first == maxX ||
+      head.second == maxY)
     return true;
 
   // Check if head of the snake collides with body
-  // Need to skip head itself; Is there exists smart way to do this check?
-  for (unsigned int i = 0; i < (snake->snake_points.size() - 1); ++i) {
-    if (snake->snake_points[i].first == headX &&
-        snake->snake_points[i].second == headY) {
-      return true;
-    }
-  }
+  // Need to skip head itself
+  if (std::find(snake->snake_points.begin(), --(snake->snake_points.end()),
+                head) != --(snake->snake_points.end()))
+    return true;
 
   // Otherwise return false
   return false;
