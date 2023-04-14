@@ -53,7 +53,7 @@ void GameManager::print_game_over() {
 
   std::string message = "GAME OVER!!! Press any button to exit!";
   std::string score_message = "Your score is: " + std::to_string(this->score);
-  wclear(stdscr);
+  werase(stdscr);
   mvwprintw(stdscr, maxY / 2, (maxX - message.length()) / 2, message.c_str());
   mvwprintw(stdscr, maxY / 2 + 1, (maxX - score_message.length()) / 2,
             score_message.c_str());
@@ -80,7 +80,7 @@ void GameManager::print_snake() {
 
 // Print frame of the game field window
 void GameManager::print_game_frame() {
-  wclear(this->game_field);
+  werase(this->game_field);
   box(this->game_field, 0, 0);
   this->print_snake();
   this->print_fruit();
@@ -92,7 +92,7 @@ void GameManager::print_score_field() {
   int maxX = score_field_width - 1;
   std::string header = "SCORE";
 
-  wclear(this->score_window);
+  werase(this->score_window);
   box(this->score_window, 0, 0);
   mvwprintw(this->score_window, 0, (maxX - header.length()) / 2,
             header.c_str());
