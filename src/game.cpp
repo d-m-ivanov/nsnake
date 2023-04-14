@@ -51,8 +51,9 @@ void GameManager::print_game_over() {
   std::string message = "GAME OVER!!! Press any button to exit!";
   std::string score_message = "Your score is: " + std::to_string(this->score);
   werase(stdscr);
-  mvwprintw(stdscr, maxY / 2, (maxX - message.length()) / 2, message.c_str());
-  mvwprintw(stdscr, maxY / 2 + 1, (maxX - score_message.length()) / 2,
+  mvwprintw(stdscr, maxY / 2, (maxX - message.length()) / 2, "%s",
+            message.c_str());
+  mvwprintw(stdscr, maxY / 2 + 1, (maxX - score_message.length()) / 2, "%s",
             score_message.c_str());
   wrefresh(stdscr);
   // Enable blocking to hold on game over screen
@@ -91,7 +92,7 @@ void GameManager::print_score_field() {
 
   werase(this->score_window);
   box(this->score_window, 0, 0);
-  mvwprintw(this->score_window, 0, (maxX - header.length()) / 2,
+  mvwprintw(this->score_window, 0, (maxX - header.length()) / 2, "%s",
             header.c_str());
   mvwprintw(this->score_window, 1, (maxX - 9) / 2, "%09d", this->score);
   wrefresh(this->score_window);
