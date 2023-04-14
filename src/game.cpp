@@ -1,6 +1,8 @@
 #include "game.h"
+#include <algorithm>
 #include <curses.h>
 #include <string>
+#include <utility>
 
 // GameManager Constructor
 GameManager::GameManager(WINDOW *game_field_window, WINDOW *score_field_window,
@@ -108,13 +110,11 @@ void GameManager::update_fruit_position() {
   std::uniform_int_distribution<int> uintX(1, maxX - 1);
   std::uniform_int_distribution<int> uintY(1, maxY - 1);
   while (true) {
-    fruit.first = uintX(gen);
-    fruit.second = uintY(gen);
-    for (auto &point : snake->snake_points) {
-      if ((point.first == fruit.first) && (point.second == fruit.second))
-        break;
-      return;
-    }
+    fruit = std::make_pair(uintX(gen), uintY(gen));
+    if (std::find(snake->snake_points.begin(), snake->snake_points.end(),
+                  fruit) != snake->snake_points.end())
+      continue;
+    return;
   }
 }
 
