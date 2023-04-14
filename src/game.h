@@ -1,10 +1,11 @@
+#pragma once
 #ifndef _GAME_H
 #define _GAME_H
 
-#include <ncurses.h>
-#include <string>
-#include <random>
 #include "snake.h"
+#include <ncurses.h>
+#include <random>
+#include <string>
 
 // Define moving settings
 // Left
@@ -18,33 +19,46 @@
 // Quit
 #define KEY_Q 113
 
-class GameManager
-{
-	// Current score.
-	int score = 0;
-	// Initialize fruit
-	std::pair<int, int> fruit{0, 0};
-	// Game window
-	WINDOW *game_field;
-	// Window to print score on.
-	WINDOW *score_window;
-	// Instanse of Snake object
-	Snake *snake;
-	public:
-		GameManager(WINDOW *, WINDOW *, Snake *);
-		~GameManager(){};
-	public:
-		void run_game();
-	private:
-		bool check_game_over();
-		void print_game_over();
-		void print_game_frame();
-		void print_snake();
-		void print_fruit();
-		bool check_fruit_condition();
-		void print_score_field();
-		void update_score();
-		void update_fruit_position();
+class GameManager {
+private:
+  // Current score.
+  int score = 0;
+  // Initialize fruit
+  std::pair<int, int> fruit = std::make_pair(0, 0);
+  std::vector<std::pair<int, int>> consumed_fruits;
+  // Game window
+  WINDOW *game_field;
+  // Game window width and height
+  int game_field_width;
+  int game_field_height;
+  // Window to print score on.
+  WINDOW *score_window;
+  // Score window width and height
+  int score_field_width;
+  int score_field_height;
+  // Instance of Snake object
+  Snake *snake;
+
+public:
+  GameManager(WINDOW *, WINDOW *, Snake *);
+  ~GameManager(){};
+
+public:
+  void run_game();
+
+private:
+  bool check_game_over();
+  bool check_fruit_condition();
+  bool check_grow_condition();
+  void update_score();
+  void update_fruit_position();
+
+private:
+  void print_score_field();
+  void print_game_over();
+  void print_game_frame();
+  void print_snake();
+  void print_fruit();
 };
 
 #endif

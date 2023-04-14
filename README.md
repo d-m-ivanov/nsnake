@@ -34,5 +34,5 @@ $ make
 
 ## TODO
 
-- [ ] Add score window;
+- [x] Add score window;
 - [ ] Code refactoring.
