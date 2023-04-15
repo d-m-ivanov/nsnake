@@ -81,8 +81,16 @@ void GameManager::print_game_frame() {
   werase(this->game_field);
   box(this->game_field, 0, 0);
   this->print_snake();
+  this->print_consumed_fruit();
   this->print_fruit();
   wrefresh(this->game_field);
+}
+
+void GameManager::print_consumed_fruit() {
+  if (!consumed_fruits.empty()) {
+    for (auto &fruit : consumed_fruits)
+      mvwprintw(this->game_field, fruit.second, fruit.first, "C");
+  }
 }
 
 void GameManager::print_score_field() {

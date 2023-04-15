@@ -54,6 +54,7 @@ private:
   void update_fruit_position();
 
 private:
+  void print_consumed_fruit();
   void print_score_field();
   void print_game_over();
   void print_game_frame();
