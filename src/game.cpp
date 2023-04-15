@@ -153,7 +153,7 @@ void GameManager::run_game() {
   this->update_fruit_position();
   this->print_score_field();
   while (true) {
-    timeout(500);
+    timeout(250);
     ch = getch();
     switch (ch) {
     case KEY_H:
