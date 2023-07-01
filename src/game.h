@@ -9,13 +9,13 @@
 
 // Define moving settings
 // Left
-#define KEY_H 104
+#define KEY_A 97
 // Down
-#define KEY_J 106
+#define KEY_S 115
 // Up
-#define KEY_K 107
+#define KEY_W 119
 // Right
-#define KEY_L 108
+#define KEY_D 100
 // Quit
 #define KEY_Q 113
 

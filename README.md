@@ -27,12 +27,7 @@ $ make
 | Key | Description |
 | --- | --- |
 | <kbd>Q</kbd> | Quit |
-| <kbd>H</kbd> | Move Left |
-| <kbd>J</kbd> | Move Down |
-| <kbd>K</kbd> | Move Up |
-| <kbd>L</kbd> | Move Right |
-
-## TODO
-
-- [x] Add score window;
-- [ ] Code refactoring.
+| <kbd>A</kbd> | Move Left |
+| <kbd>S</kbd> | Move Down |
+| <kbd>W</kbd> | Move Up |
+| <kbd>D</kbd> | Move Right |

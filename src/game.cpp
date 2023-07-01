@@ -164,16 +164,16 @@ void GameManager::run_game() {
     timeout(250);
     ch = getch();
     switch (ch) {
-    case KEY_H:
+    case KEY_A:
       snake->snake_speed_update(-1, 0);
       break;
-    case KEY_J:
+    case KEY_S:
       snake->snake_speed_update(0, 1);
       break;
-    case KEY_K:
+    case KEY_W:
       snake->snake_speed_update(0, -1);
       break;
-    case KEY_L:
+    case KEY_D:
       snake->snake_speed_update(1, 0);
       break;
     case KEY_Q:
